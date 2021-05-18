@@ -77,8 +77,6 @@ function local_leeloochat_before_footer() {
 
     global $USER;
     global $PAGE;
-    global $DB;
-    global $CFG;
     global $SESSION;
 
     @$useremail = $USER->email;
@@ -95,7 +93,7 @@ function local_leeloochat_before_footer() {
 
         $pagebutton = '';
         if ($leeloopage != '') {
-            $pagebutton = '<span onclick=\"show_page(\''.$leeloopage.'\');\">P</span>';
+            $pagebutton = '<span onclick=\"show_page(\'' . $leeloopage . '\');\">P</span>';
         }
 
         $PAGE->requires->js('/local/leeloochat/js/widget.js');
@@ -104,11 +102,19 @@ function local_leeloochat_before_footer() {
 
         $frameurl = "https://leeloolxp.com/wespher_support_system/?view=snippet&user=" . base64_encode($USER->id) . "&token=" . $leeloolxplicense . "&jsessionid=" . $jsessionid;
 
+        $wespherchattitle = '<span class=\"wespher_chat_title\" onclick=\"show_widget();\">' . get_string('widget_title', 'local_leeloochat') . '</span>';
+
+        $closeframe = '<span onclick=\"close_frame();\">X</span>';
+
+        $buttons = '<div class=\"wespherbuttonsdiv\"><span onclick=\"show_widget();\">W</span><span onclick=\"show_full();\">F</span>' . $pagebutton . $closeframe . '</div>';
+
+        $frame = '<iframe id=\"wespher_widget_frame\" class=\"wespher_widget\" src=\"' . $frameurl . '\" style=\"display:none;\"></iframe>';
+
         $js2 = '
         var z = document.createElement("div"); // is a node
         z.setAttribute("class", "wespher_widget_div");
 
-        z.innerHTML = "<div class=\"wespher_chat\"><span class=\"wespher_chat_title\" onclick=\"show_widget();\">' . get_string('widget_title', 'local_leeloochat') . '</span><div class=\"wespherbuttonsdiv\"><span onclick=\"show_widget();\">W</span><span onclick=\"show_full();\">F</span>' . $pagebutton . '<span onclick=\"close_frame();\">X</span></div></div><iframe id=\"wespher_widget_frame\" class=\"wespher_widget\" src=\"' . $frameurl . '\" style=\"display:none;\"></iframe>";
+        z.innerHTML = "<div class=\"wespher_chat\">' . $wespherchattitle . $buttons . '</div>' . $frame . '";
         document.body.appendChild(z);';
 
         $PAGE->requires->js_init_code("$js2");
