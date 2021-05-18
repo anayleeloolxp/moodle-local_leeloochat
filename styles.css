@@ -1,0 +1,34 @@
+.wespher_widget_div {
+    width: 350px;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    z-index: 99999999999;
+    box-shadow: 0 4px 15px 0 rgba(5,27,44,.7);
+    background: white;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+}
+iframe.wespher_widget {
+    width: 100%;
+	display: none;
+	height: 500px;
+}
+.wespher_chat {
+    background: #0094bc;
+    color: white;
+    padding: 15px;
+    display: block;
+    position: relative;
+    height: 50px;
+}
+.wespherbuttonsdiv {
+    float: right;
+}
+.wespherbuttonsdiv span {
+    margin: 0 3px;
+    cursor: pointer;
+}
+.wespher_chat_title{
+    cursor: pointer;
+}
