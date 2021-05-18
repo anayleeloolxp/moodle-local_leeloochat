@@ -4,7 +4,7 @@
     bottom: 0;
     right: 15px;
     z-index: 99999999999;
-    box-shadow: 0 4px 15px 0 rgba(5, 27 ,44 , .7);
+    box-shadow: 0 4px 15px 0 rgba(5, 27 , 44, .7);
     background: white;
     border-radius: 5px 5px 0 0;
     overflow: hidden;
