@@ -96,9 +96,9 @@ function local_leeloochat_before_footer() {
         $p = '<img src=\"'.new moodle_url('/local/leeloochat/icons/full-page.png').'\"/>';
         $w = '<img src=\"'.new moodle_url('/local/leeloochat/icons/widget.png').'\"/>';
 
-        $pagebutton = '';
+        $pgbtn = '';
         if ($leeloopage != '') {
-            $pagebutton = '<span onclick=\"show_page(\'' . $leeloopage . '\');\">'.$p.'</span>';
+            $pgbtn = '<span onclick=\"show_page(\'' . $leeloopage . '\');\">'.$p.'</span>';
         }
 
         $PAGE->requires->js('/local/leeloochat/js/widget.js');
@@ -111,7 +111,7 @@ function local_leeloochat_before_footer() {
 
         $closeframe = '<span onclick=\"close_frame();\">'.$x.'</span>';
 
-        $buttons = '<div class=\"wespherbuttonsdiv\"><span onclick=\"show_widget();\">'.$w.'</span><span onclick=\"show_full();\">'.$f.'</span>' . $pagebutton . $closeframe . '</div>';
+        $btns = '<div class=\"wespherbuttonsdiv\"><span onclick=\"show_widget();\">'.$w.'</span><span onclick=\"show_full();\">'.$f.'</span>' . $pgbtn . $closeframe . '</div>';
 
         $frame = '<iframe id=\"wespher_widget_frame\" class=\"wespher_widget\" src=\"' . $frameurl . '\" style=\"display:none;\"></iframe>';
 
@@ -119,7 +119,7 @@ function local_leeloochat_before_footer() {
         var z = document.createElement("div"); // is a node
         z.setAttribute("class", "wespher_widget_div");
 
-        z.innerHTML = "<div class=\"wespher_chat\">' . $wespherchattitle . $buttons . '</div>' . $frame . '";
+        z.innerHTML = "<div class=\"wespher_chat\">' . $wespherchattitle . $btns . '</div>' . $frame . '";
         document.body.appendChild(z);';
 
         $PAGE->requires->js_init_code("$js2");
