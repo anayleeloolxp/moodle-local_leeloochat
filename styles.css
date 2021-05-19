@@ -1,12 +1,13 @@
 .wespher_widget_div {
     width: 350px;
+    max-width: 100%;
     position: fixed;
     bottom: 0;
-    right: 15px;
+    right: 0;
     z-index: 99999999999;
     box-shadow: 0 4px 15px 0 rgba(5, 27, 44, .7);
     background: white;
-    border-radius: 5px 5px 0 0;
+    border-radius: 0;
     overflow: hidden;
 }
 iframe.wespher_widget {
@@ -28,6 +29,9 @@ iframe.wespher_widget {
 .wespherbuttonsdiv span {
     margin: 0 3px;
     cursor: pointer;
+}
+.wespherbuttonsdiv span img {
+    width: 20px;
 }
 .wespher_chat_title {
     cursor: pointer;

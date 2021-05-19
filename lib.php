@@ -91,9 +91,14 @@ function local_leeloochat_before_footer() {
         $leeloolxplicense = get_config('local_leeloochat')->license;
         $leeloopage = get_config('local_leeloochat')->pageurl;
 
+        $x = '<img src=\"'.new moodle_url('/local/leeloochat/icons/close.png').'\"/>';
+        $f = '<img src=\"'.new moodle_url('/local/leeloochat/icons/column.png').'\"/>';
+        $p = '<img src=\"'.new moodle_url('/local/leeloochat/icons/full-page.png').'\"/>';
+        $w = '<img src=\"'.new moodle_url('/local/leeloochat/icons/widget.png').'\"/>';
+
         $pagebutton = '';
         if ($leeloopage != '') {
-            $pagebutton = '<span onclick=\"show_page(\'' . $leeloopage . '\');\">P</span>';
+            $pagebutton = '<span onclick=\"show_page(\'' . $leeloopage . '\');\">'.$p.'</span>';
         }
 
         $PAGE->requires->js('/local/leeloochat/js/widget.js');
@@ -104,9 +109,9 @@ function local_leeloochat_before_footer() {
 
         $wespherchattitle = '<span class=\"wespher_chat_title\" onclick=\"show_widget();\">' . get_string('widget_title', 'local_leeloochat') . '</span>';
 
-        $closeframe = '<span onclick=\"close_frame();\">X</span>';
+        $closeframe = '<span onclick=\"close_frame();\">'.$x.'</span>';
 
-        $buttons = '<div class=\"wespherbuttonsdiv\"><span onclick=\"show_widget();\">W</span><span onclick=\"show_full();\">F</span>' . $pagebutton . $closeframe . '</div>';
+        $buttons = '<div class=\"wespherbuttonsdiv\"><span onclick=\"show_widget();\">'.$w.'</span><span onclick=\"show_full();\">'.$f.'</span>' . $pagebutton . $closeframe . '</div>';
 
         $frame = '<iframe id=\"wespher_widget_frame\" class=\"wespher_widget\" src=\"' . $frameurl . '\" style=\"display:none;\"></iframe>';
 
