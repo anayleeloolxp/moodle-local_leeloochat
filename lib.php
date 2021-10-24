@@ -34,6 +34,8 @@ require_once(dirname(dirname(__DIR__)) . '/config.php');
 function local_leeloochat_get_leelooinstall() {
 
     global $SESSION;
+    global $CFG;
+    require_once($CFG->dirroot . '/lib/filelib.php');
 
     if (isset($SESSION->chatleelooinstall)) {
         return $SESSION->chatchatleelooinstall;
