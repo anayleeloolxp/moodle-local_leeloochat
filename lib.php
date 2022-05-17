@@ -109,20 +109,28 @@ function local_leeloochat_before_footer() {
 
         $frameurl = "https://leeloolxp.com/wespher_support_system/?view=snippet&user=" . base64_encode($USER->id) . "&token=" . $leeloolxplicense . "&jsessionid=" . $jsessionid;
 
-        $wespherchattitle = '<span class=\"wespher_chat_title\" onclick=\"show_widget();\">' . get_string('widget_title', 'local_leeloochat') . '</span>';
+        $wespherchattitle = '<span class=\"wespher_chat_title\" onclick=\"show_full();\">' . get_string('widget_title', 'local_leeloochat') . '</span>';
 
         $closeframe = '<span onclick=\"close_frame();\">'.$x.'</span>';
 
-        $btns = '<div class=\"wespherbuttonsdiv\"><span onclick=\"show_widget();\">'.$w.'</span><span onclick=\"show_full();\">'.$f.'</span>' . $pgbtn . $closeframe . '</div>';
+        $btns = '<div class=\"wespherbuttonsdiv\"><span onclick=\"show_half();\">'.$w.'</span><span onclick=\"show_full();\">'.$f.'</span>' . $pgbtn . $closeframe . '</div>';
 
-        $frame = '<iframe id=\"wespher_widget_frame\" class=\"wespher_widget\" src=\"' . $frameurl . '\" style=\"display:none;\"></iframe>';
+        $frame = '<iframe id=\"wespher_widget_frame\" class=\"wespher_widget\" src=\"' . $frameurl . '\"></iframe>';
 
         $js2 = '
-        var z = document.createElement("div"); // is a node
-        z.setAttribute("class", "wespher_widget_div");
+        var z = document.createElement("div");
+        z.setAttribute("class", "wespher_widget_div l_hidden");
+        z.setAttribute("id", "wespher_widget_div");
 
         z.innerHTML = "<div class=\"wespher_chat\">' . $wespherchattitle . $btns . '</div>' . $frame . '";
-        document.body.appendChild(z);';
+        document.body.appendChild(z);
+        
+        var navleeloolxpchatcontainer = document.getElementById("navleeloolxpchatcontainer");
+        if(navleeloolxpchatcontainer){
+            document.getElementById("navleeloolxpchatcontainer").classList.remove("l_hidden");
+        }
+        
+        ';
 
         $PAGE->requires->js_init_code("$js2");
     }

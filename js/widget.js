@@ -1,16 +1,20 @@
-function show_widget(){
-    var x = document.getElementById("wespher_widget_frame");
-    x.style.display = "block";
-    x.style.height = "500px";
+function toggle_widget(){
+    var x = document.getElementById("wespher_widget_div");
+    x.classList.toggle("l_hidden");
+}
+function show_half(){
+    var x = document.getElementById("wespher_widget_div");
+    x.classList.add("showhalf");
+    x.classList.remove("l_hidden");
 }
 function show_full(){
-    var x = document.getElementById("wespher_widget_frame");
-    x.style.display = "block";
-    x.style.height = "calc( 100vh - 50px )";
+    var x = document.getElementById("wespher_widget_div");
+    x.classList.remove("showhalf");
+    x.classList.remove("l_hidden");
 }
 function close_frame(){
-    var x = document.getElementById("wespher_widget_frame");
-    x.style.display = "none";
+    var x = document.getElementById("wespher_widget_div");
+    x.classList.add("l_hidden");
 }
 function show_page(url){
     location.href = url;
