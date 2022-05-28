@@ -25,8 +25,6 @@
 
 namespace local_leeloochat\privacy;
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Privacy Subsystem for local_leeloochat implementing null_provider.
  *
