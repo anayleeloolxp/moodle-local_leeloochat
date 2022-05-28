@@ -23,9 +23,6 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
-require_once(dirname(dirname(__DIR__)) . '/config.php');
-
 /**
  * Function to get Leeloo Install
  *
@@ -107,13 +104,27 @@ function local_leeloochat_before_footer() {
 
         $jsessionid = $SESSION->jsession_id;
 
-        $frameurl = "https://leeloolxp.com/wespher_support_system/?view=snippet&user=" . base64_encode($USER->id) . "&token=" . $leeloolxplicense . "&jsessionid=" . $jsessionid;
+        $frameurl = "https://leeloolxp.com/wespher_support_system/?view=snippet&user=" .
+            base64_encode($USER->id) .
+            "&token=" .
+            $leeloolxplicense .
+            "&jsessionid=" .
+            $jsessionid;
 
-        $wespherchattitle = '<span class=\"wespher_chat_title\" onclick=\"show_full();\">' . get_string('widget_title', 'local_leeloochat') . '</span>';
+        $wespherchattitle = '<span class=\"wespher_chat_title\" onclick=\"show_full();\">' .
+            get_string('widget_title', 'local_leeloochat') .
+            '</span>';
 
         $closeframe = '<span onclick=\"close_frame();\">' . $x . '</span>';
 
-        $btns = '<div class=\"wespherbuttonsdiv\"><span onclick=\"show_half();\">' . $w . '</span><span onclick=\"show_full();\">' . $f . '</span>' . $pgbtn . $closeframe . '</div>';
+        $btns = '<div class=\"wespherbuttonsdiv\"><span onclick=\"show_half();\">' .
+            $w .
+            '</span><span onclick=\"show_full();\">' .
+            $f .
+            '</span>' .
+            $pgbtn .
+            $closeframe .
+            '</div>';
 
         $frame = '<iframe id=\"wespher_widget_frame\" class=\"wespher_widget\" src=\"' . $frameurl . '\"></iframe>';
 

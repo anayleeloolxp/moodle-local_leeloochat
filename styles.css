@@ -10,12 +10,12 @@
     border-radius: 0;
     overflow: hidden;
 }
-#wespher_widget_div.l_hidden #wespher_widget_frame{
+#wespher_widget_div.l_hidden #wespher_widget_frame {
     display: none;
 }
 #wespher_widget_frame {
     width: 100%;
-    height: calc( 100vh - 50px );
+    height: calc(100vh - 50px);
 }
 #wespher_widget_div.showhalf #wespher_widget_frame {
     height: 500px;
