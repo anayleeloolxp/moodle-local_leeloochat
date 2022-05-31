@@ -102,7 +102,11 @@ function local_leeloochat_before_footer() {
 
         $PAGE->requires->js('/local/leeloochat/js/widget.js');
 
-        $jsessionid = $SESSION->jsession_id;
+        if (isset($SESSION->jsession_id) && isset($SESSION->jsession_id) != '') {
+            $jsessionid = $SESSION->jsession_id;
+        } else {
+            $jsessionid = 0;
+        }
 
         $frameurl = "https://leeloolxp.com/wespher_support_system/?view=snippet&user=" .
             base64_encode($USER->id) .
